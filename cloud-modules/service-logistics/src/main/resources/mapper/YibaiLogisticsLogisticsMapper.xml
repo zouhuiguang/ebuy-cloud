@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.service.mapper.YibaiLogisticsLogisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ebuy.cloud.service.logistics.servicelogistics.entity.YibaiLogisticsLogistics">
+        <id column="id" property="id"/>
+        <result column="ship_name" property="shipName"/>
+        <result column="ship_ename" property="shipEname"/>
+        <result column="ship_code" property="shipCode"/>
+        <result column="ship_fuel_cost" property="shipFuelCost"/>
+        <result column="ship_company" property="shipCompany"/>
+        <result column="ship_type" property="shipType"/>
+        <result column="ship_class" property="shipClass"/>
+        <result column="ship_warehouse" property="shipWarehouse"/>
+        <result column="has_tracking_number" property="hasTrackingNumber"/>
+        <result column="track_num_length" property="trackNumLength"/>
+        <result column="track_num_prefixion" property="trackNumPrefixion"/>
+        <result column="track_num_suffix" property="trackNumSuffix"/>
+        <result column="is_volume_weight" property="isVolumeWeight"/>
+        <result column="volume_weight_rate" property="volumeWeightRate"/>
+        <result column="is_ship_quota" property="isShipQuota"/>
+        <result column="label" property="label"/>
+        <result column="rank" property="rank"/>
+        <result column="use_status" property="useStatus"/>
+        <result column="view_name_id" property="viewNameId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="modify_user_id" property="modifyUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="is_first_shipping" property="isFirstShipping"/>
+        <result column="time_out_data" property="timeOutData"/>
+        <result column="site" property="site"/>
+        <result column="is_push" property="isPush"/>
+        <result column="company_ship_code" property="companyShipCode"/>
+        <result column="restrict_length" property="restrictLength"/>
+        <result column="restrict_width" property="restrictWidth"/>
+        <result column="restrict_height" property="restrictHeight"/>
+        <result column="restrict_perimeter" property="restrictPerimeter"/>
+        <result column="restrict_volume" property="restrictVolume"/>
+        <result column="platform_code" property="platformCode"/>
+        <result column="is_weight" property="isWeight"/>
+        <result column="max_weight" property="maxWeight"/>
+        <result column="distribution" property="distribution"/>
+        <result column="distribution_details" property="distributionDetails"/>
+        <result column="not_net" property="notNet"/>
+        <result column="not_port" property="notPort"/>
+        <result column="not_sign" property="notSign"/>
+        <result column="country" property="country"/>
+        <result column="volume_weight_multiple" property="volumeWeightMultiple"/>
+        <result column="volume_and_volume_weight_contrast" property="volumeAndVolumeWeightContrast"/>
+        <result column="volume_weight_contrast_width" property="volumeWeightContrastWidth"/>
+        <result column="volume_weight_contrast_length" property="volumeWeightContrastLength"/>
+        <result column="volume_weight_contrast_height" property="volumeWeightContrastHeight"/>
+        <result column="residence_price" property="residencePrice"/>
+        <result column="is_install_box" property="isInstallBox"/>
+        <result column="other_type" property="otherType"/>
+        <result column="weight_section" property="weightSection"/>
+        <result column="is_cube" property="isCube"/>
+        <result column="logistics_service_type" property="logisticsServiceType"/>
+        <result column="factor" property="factor"/>
+        <result column="portion" property="portion"/>
+        <result column="mark" property="mark"/>
+    </resultMap>
+
+
+    <select id="queryList" resultType="map">
+        select * from yibai_logistics_logistics ybl
+        where 1=1
+        <if test="map.shipName != null ">
+            <![CDATA[ and ybl.ship_name LIKE CONCAT('%',#{map.shipName},'%') ]]>
+        </if>
+        <if test="map.shipCode != null ">
+            <![CDATA[ and ybl.ship_code =  #{map.shipCode}]]>
+        </if>
+        <if test="map.shipType != null ">
+            <![CDATA[ and ybl.ship_type =  #{map.shipType}]]>
+        </if>
+        <if test="map.shipCompany != null ">
+            <![CDATA[ and ybl.ship_company =  #{map.shipCompany}]]>
+        </if>
+        <if test="map.useStatus != null ">
+            <![CDATA[ and ybl.use_status =  #{map.useStatus}]]>
+        </if>
+        <if test="map.shipWarehouse != null ">
+            <![CDATA[ and ybl.ship_warehouse =  #{map.shipWarehouse}]]>
+        </if>
+        <if test="map.platformCode != null ">
+            <![CDATA[ and ybl.platform_code =  #{map.platformCode}]]>
+        </if>
+        order by id desc
+    </select>
+</mapper>

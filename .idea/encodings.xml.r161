@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules/service-logistics" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-modules/service-product" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-visual" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-visual" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zuul" charset="UTF-8" />
+  </component>
+</project>

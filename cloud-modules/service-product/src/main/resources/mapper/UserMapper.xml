@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+    <resultMap id="BaseResultMap" type="User">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="realname" jdbcType="VARCHAR" property="realname" />
+        <!-- 一对一关联映射：association -->
+        <association property="userScore" javaType="UserScore">
+            <id property="id" column="score_id" />
+            <result column="score" jdbcType="TINYINT" property="score" />
+        </association>
+    </resultMap>
+
+    <select id="selectUserListPage" resultMap="BaseResultMap">
+        SELECT
+        u.id, u.username, u.password, u.phone, u.realname, us.id score_id, us.score
+        FROM
+        `user` u, user_score us
+        WHERE u.id=us.user_id
+        <if test="score != null">
+            AND us.score>#{score}
+        </if>
+    </select>
+
+</mapper>

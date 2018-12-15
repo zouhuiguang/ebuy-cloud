@@ -1,0 +1,23 @@
+server:
+  port: 8003
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+spring:
+  application:
+    name: logistcs-service
+
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  config: classpath:logback.xml
+
+

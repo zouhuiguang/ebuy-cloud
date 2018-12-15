@@ -1,0 +1,18 @@
+server:
+  port: 9000
+
+eureka:
+  server:
+    enable-self-preservation:  false # 关闭自我保护模式（缺省为启动，比如api提供者关闭了，但是eureka仍然会保留）
+    eviction-interval-timer-in-ms: 10000 # 清理间隔（毫秒，默认 60秒），将有问题的api提供者或app消费者剔除掉
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: server-eureka

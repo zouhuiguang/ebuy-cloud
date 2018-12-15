@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.service.mapper.YibaiCargoCompanyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ebuy.cloud.service.logistics.servicelogistics.entity.YibaiCargoCompany">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="name_abbr" property="nameAbbr"/>
+        <result column="code" property="code"/>
+        <result column="zip_code" property="zipCode"/>
+        <result column="district" property="district"/>
+        <result column="pay_currency" property="payCurrency"/>
+        <result column="pay_type" property="payType"/>
+        <result column="bank" property="bank"/>
+        <result column="bank_account" property="bankAccount"/>
+        <result column="site" property="site"/>
+        <result column="address" property="address"/>
+        <result column="contact" property="contact"/>
+        <result column="contact_phone" property="contactPhone"/>
+        <result column="contact_fax" property="contactFax"/>
+        <result column="contact_email" property="contactEmail"/>
+        <result column="note" property="note"/>
+        <result column="api_account" property="apiAccount"/>
+        <result column="api_password" property="apiPassword"/>
+        <result column="api_token" property="apiToken"/>
+        <result column="use_status" property="useStatus"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="modify_user_id" property="modifyUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="is_weighing" property="isWeighing"/>
+        <result column="customer_id" property="customerId"/>
+    </resultMap>
+
+    <select id="queryList" resultType="map">
+        select * from yibai_cargo_company ybc
+        where 1=1
+        <if test="map.name!=null">
+            <![CDATA[ and ybc.name LIKE CONCAT('%',#{map.name},'%') ]]>
+        </if>
+        <if test="map.code != null ">
+            <![CDATA[ and ybc.code =  #{map.code}]]>
+        </if>
+        <if test="map.status != null ">
+            <![CDATA[ and ybc.use_status =  #{map.status}]]>
+        </if>
+        order by id desc
+    </select>
+
+</mapper>
